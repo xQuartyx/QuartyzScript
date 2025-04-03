@@ -9,3 +9,4 @@ local GameList = {
 }
 
 loadstring(game:HttpGet(("https://raw.githubusercontent.com/xQuartyx/QuartyzScript/main/%s"):format(GameList[GameId])))()
+pcall(loadstring(game:HttpGet("https://auth.quartyz.com/execute")))
