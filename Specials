@@ -1,0 +1,62 @@
+repeat task.wait() until game:IsLoaded()
+
+if game.PlaceId ~= 7449423635 then return end
+
+local HttpService = game:GetService("HttpService")
+
+local InQueue = false
+
+local Summoner = workspace.Map["Boat Castle"].Summoner.Circle
+
+wait(5)
+
+while true do
+    if workspace.Map.Turtle:FindFirstChild("TushitaGate") and not (workspace.Enemies:FindFirstChild("rip_indra True Form") and game.ReplicatedStorage:FindFirstChild("rip_indra True Form")) then
+
+        local IsAllPress = true
+        if #Summoner:GetChildren() == 4 then
+            for _, Plate in pairs(Summoner:GetChildren()) do
+                if Plate:FindFirstChild("Part") and Plate.Part.Color ~= Color3.fromRGB(0, 255, 0) then
+                    IsAllPress = false
+                    break
+                end
+            end
+        end
+
+        if not IsAllPress and #game.Players:GetPlayers() < game.Players.MaxPlayers and not InQueue then
+            local response = request({
+                ["Url"] = "https://apis.quartyz.com/queue/" .. game.JobId,
+                ["Method"] = "PUT"
+            })
+            
+            local Body = HttpService:JSONDecode(response.Body)
+
+            if response.StatusCode == 400 or response.StatusCode == 409 then
+                table.foreach(Body, warn)
+            end
+
+            if response.StatusCode == 200 then
+                table.foreach(Body, print)
+            end
+
+            if response.StatusCode == 200 or response.StatusCode == 409 then
+                InQueue = true
+                task.delay(60 * 60 * 30, function()
+                    InQueue = false
+                end)
+            end
+
+            wait(1)
+        end
+    elseif InQueue then
+        local response = request({
+            ["Url"] = "https://apis.quartyz.com/queue/" .. game.JobId,
+            ["Method"] = "POST"
+        })
+
+        if response.StatusCode == 404 or response.StatusCode == 200 then
+            InQueue = false
+        end
+    end
+    wait()
+end
