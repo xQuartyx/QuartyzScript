@@ -1,10 +1,5 @@
 repeat task.wait() until game:IsLoaded()
 
-local Unsupported = {
-    "xeno",
-    "solara"
-}
-
 local executorname = "Unknown"
 if getexecutorname then
     executorname = getexecutorname()
@@ -29,4 +24,4 @@ local GameList = {
 }
 
 loadstring(game:HttpGet(("https://raw.githubusercontent.com/xQuartyx/QuartyzScript/main/%s"):format(GameList[GameId])))()
-request({ ["Url"] = "https://auth.quartyz.com/execute?game=" .. GameId })
+request({ ["Url"] = "https://auth.quartyz.com/execute?game=" .. GameId .. "&executor=" .. executorname })
