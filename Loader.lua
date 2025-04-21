@@ -29,4 +29,4 @@ local GameList = {
 }
 
 loadstring(game:HttpGet(("https://raw.githubusercontent.com/xQuartyx/QuartyzScript/main/%s"):format(GameList[GameId])))()
-request({ ["Url"] = "https://auth.quartyz.com/execute" })
+request({ ["Url"] = "https://auth.quartyz.com/execute?game=" .. GameId })
