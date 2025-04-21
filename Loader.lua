@@ -7,12 +7,6 @@ elseif identifyexecutor then
     executorname = identifyexecutor()
 end
 
-for i,v in pairs(Unsupported) do
-    if executorname:lower():find(v) then
-        return game.Players.LocalPlayer:Kick(executorname .. " is Unsupported Executor")
-    end
-end
-
 local GameId = game.GameId
 
 local GameList = {
