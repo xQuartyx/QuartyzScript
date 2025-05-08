@@ -26,5 +26,18 @@ local GameList = {
     [7095682825] = "Beaks/Default.lua"
 }
 
+local canRequire, err = pcall(require, Instance.new("ModuleScript"))
+if not canRequire then
+    local old; old = hookfunction(require, newcclosure(function(...)
+        if checkcaller() then
+            setthreadidentity(2)
+            local result = old(...)
+            setthreadidentity(8)
+            return result
+        end
+        return old(...)
+    end))
+end
+
 loadstring(game:HttpGet(("https://raw.githubusercontent.com/xQuartyx/QuartyzScript/main/%s"):format(GameList[GameId])))()
 request({ ["Url"] = "https://auth.quartyz.com/execute?game=" .. GameId .. (getgenv().Mode and " " .. getgenv().Mode or "") .. "&executor=" .. executorname })
