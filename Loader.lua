@@ -28,7 +28,6 @@ local GameList = {
 
 local canRequire, err = pcall(require, Instance.new("ModuleScript"))
 if not canRequire and err == "Cannot require a non-RobloxScript module from a RobloxScript" then
-    print(err)
     local old; old = hookfunction(require, newcclosure(function(...)
         if checkcaller() then
             setthreadidentity(2)
