@@ -27,7 +27,8 @@ local GameList = {
 }
 
 local canRequire, err = pcall(require, Instance.new("ModuleScript"))
-if not canRequire then
+if not canRequire and err == "Cannot require a non-RobloxScript module from a RobloxScript" then
+    print(err)
     local old; old = hookfunction(require, newcclosure(function(...)
         if checkcaller() then
             setthreadidentity(2)
@@ -37,6 +38,8 @@ if not canRequire then
         end
         return old(...)
     end))
+
+    print("Repair require function")
 end
 
 loadstring(game:HttpGet(("https://raw.githubusercontent.com/xQuartyx/QuartyzScript/main/%s"):format(GameList[GameId])))()
