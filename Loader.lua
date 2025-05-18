@@ -23,7 +23,8 @@ local GameList = {
     [994732206] = "Blox%20Fruits/Loader.lua",
     [1451439645] = "King%20Legacy/Loader.lua",
     [6765805766] = "Block%20Spin/Loader.lua",
-    [7095682825] = "Beaks/Default.lua"
+    [7095682825] = "Beaks/Default.lua",
+    [7436755782] = "Grow%20a%20Garden/Default.lua"
 }
 
 -- local canRequire, err = pcall(require, Instance.new("ModuleScript"))
