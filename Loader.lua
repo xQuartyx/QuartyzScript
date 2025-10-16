@@ -7,7 +7,7 @@ elseif identifyexecutor then
     executorname = identifyexecutor()
 end
 
-local FAKE_EXECUTOR = { "xeno", "jjsploit" }
+local FAKE_EXECUTOR = {  }
 
 for i,v in pairs(FAKE_EXECUTOR) do
     if executorname:lower():find(v) then
