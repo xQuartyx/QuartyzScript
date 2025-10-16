@@ -38,4 +38,3 @@ local GameList = {
 -- end
 
 loadstring(game:HttpGet(("https://raw.githubusercontent.com/xQuartyx/QuartyzScript/main/%s"):format(GameList[GameId])))()
-request({ ["Url"] = "https://auth.quartyz.com/execute?game=" .. GameId .. (getgenv().Mode and " " .. getgenv().Mode or "") .. "&executor=" .. executorname })
