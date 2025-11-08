@@ -1,5 +1,7 @@
 if not getgenv().product_key and not getgenv().serial_key then
-  return loadstring(game:HttpGet("https://raw.githubusercontent.com/xQuartyx/QuartyzScript/refs/heads/main/Blox%20Fruits/Temp/Oneclick"))()
+  repeat task.wait() until game:IsLoaded()
+
+  game.Players.LocalPlayer:Kick("\n\nOne Click Mode is paid now!!\nhttps://discord.gg/YMAhpPNWXF")
 end
 
 -- This file was protected using Luraph Obfuscator v14.4.2 [https://lura.ph/]
