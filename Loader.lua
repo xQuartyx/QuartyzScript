@@ -21,7 +21,8 @@ local GameId = game.GameId
 local GameList = {
     [994732206] = "Blox%20Fruits/Loader.lua",
     [6765805766] = "Block%20Spin/Loader.lua",
-    [9186719164] = "Sailor%20Piece/Default.lua"
+    [9186719164] = "Sailor%20Piece/Default.lua",
+    [10200395747] = "Grow%20a%20Garden%202/Loader.lua"
 }
 
 loadstring(game:HttpGet(("https://raw.githubusercontent.com/xQuartyx/QuartyzScript/main/%s"):format(GameList[GameId])))()
